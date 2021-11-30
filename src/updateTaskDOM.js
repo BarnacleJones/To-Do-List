@@ -1,5 +1,8 @@
 import { closeTaskForm } from "./eventlisteners";
 
+//this function is getting values from task form 
+//and appending the task to the dom
+
 let taskNumber = 0;
 
 function addTask(){
@@ -21,6 +24,7 @@ function addTask(){
     taskArea.appendChild(newDiv);
     taskNumber++;
     closeTaskForm();
+    return tasktitle;
 }
 
 export {addTask}

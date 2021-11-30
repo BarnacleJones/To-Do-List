@@ -1,4 +1,6 @@
-import { selectProject } from "./updateProjectArray";
+
+//this function is solely getting the name of the project and adding it to the dom
+
 
 function updateProjectDOM(project){
     let projectArea = document.getElementById("projectsDisplay");
