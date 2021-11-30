@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,15 +15,15 @@
     <div id="app">
         <div id=projectsDisplay>
             
-            <h1>Projects:<span ><img src="images/add.png" alt="addButton" class="addProject" width="20%" ></span></h1>
+            <h1>Projects:<span ><img src="images/add.png" alt="addButton" class="addProject" width="15%" ></span></h1>
             
         </div>
         <div id="mainDisplay">
-            <h1>Tasks:<span class="addTask"><img src="images/add.png" alt="addButton" width="5%" ></span></h1>
+            <h1>Tasks:<span><img src="images/add.png" alt="addButton" width="40%" class="addTask"></span></h1>
         </div>
       
     <div id="formArea">
-        <h1>New Project</h1>          
+        <h1>New Task</h1>          
         <form id="form" action="/" method="GET">
           <label for="title">Title:</label>
           <br>
@@ -31,7 +31,7 @@
             type="text"
             id="title"
             name="title"
-            placeholder="Project Title"
+            placeholder="Task"
             autocomplete="off"
             required
           /><br/>
@@ -57,10 +57,28 @@
             <option value="low">Low</option>
           </select>
           <br />
-          <button class="close" type="button">Close</button>
-          <button class="submit" type="button">Submit</button>
+          <button class="closeTask" type="button">Close</button>
+          <button class="submitTask" type="button">Submit</button>
         </form>
     </div>
+    <div id="projectForm">        
+            <h1>New Project</h1>          
+            <form id="form" action="/" method="GET">
+              <label for="title">Project Name:</label>
+              <br>
+              <input
+                type="text"
+                id="projectTitle"
+                name="title"
+                placeholder="Eg - shopping"
+                autocomplete="off"
+                required
+              /><br/>
+              <button class="closeProject" type="button">Close</button>
+              <button class="submitProject" type="button">Submit</button>
+            </form>
+    </div>
+
 </div> 
 
     <footer>
@@ -68,3 +86,4 @@
     </footer>
 </body>
 </html>
+
