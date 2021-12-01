@@ -1,7 +1,7 @@
 
 
-import { updateProjectDOM } from "./updateProjectDOM";
+import { createProject } from "./projectFactory";
 import { initialeventListeners } from "./eventlisteners";
 
 initialeventListeners();
-updateProjectDOM("default");
+createProject("default");

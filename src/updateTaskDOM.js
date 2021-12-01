@@ -1,4 +1,5 @@
 import { closeTaskForm } from "./eventlisteners";
+import {currentproject} from "./projectFactory"
 
 //this function is getting values from task form 
 //and appending the task to the dom
@@ -13,7 +14,7 @@ function addTaskToDOM(){
     
     let taskArea = document.getElementById("mainDisplay");
     let newDiv = document.createElement("DIV");
-    newDiv.setAttribute("id", `div${taskNumber}`);
+    newDiv.setAttribute("id", `${currentproject+taskNumber}`);
 
     newDiv.innerHTML = 
     `<h3>${tasktitle}</h3>
