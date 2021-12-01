@@ -5,7 +5,7 @@ import { closeTaskForm } from "./eventlisteners";
 
 let taskNumber = 0;
 
-function addTask(){
+function addTaskToDOM(){
     let tasktitle = document.getElementById("title").value;
     let description = document.getElementById("Description").value;
     let duedate = document.getElementById("due").value;
@@ -24,7 +24,7 @@ function addTask(){
     taskArea.appendChild(newDiv);
     taskNumber++;
     closeTaskForm();
-    return tasktitle;
+    
 }
 
-export {addTask}
+export {addTaskToDOM}
