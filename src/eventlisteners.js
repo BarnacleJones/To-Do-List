@@ -1,4 +1,4 @@
-import { createProject, projectName, selectProject} from "./projectFactory";
+import { createProject, selectProject, addTaskToProject} from "./projectFactory";
 
 function showTaskForm(){document.getElementById("formArea").style.display = "inherit";}
 function showProjectForm(){document.getElementById("projectForm").style.display = "inherit";}
@@ -17,7 +17,8 @@ document.addEventListener("click", (e) => {
     else if (target === "addProject") showProjectForm();
     else if (target === "closeProject") closeProjectForm(); 
     else if (target === "submitProject")  createProject(document.getElementById("projectTitle").value);  
-    else if (target === "submitTask")  projectName.addTask();
+    
+    else if (target === "submitTask")  addTaskToProject();
     else if (target === "projectTitle") selectProject(e);
 })
 }

@@ -1,6 +1,4 @@
-
-
-import { createProject } from "./projectFactory";
+import { createProject, selectProject } from "./projectFactory";
 import { initialeventListeners } from "./eventlisteners";
 
 initialeventListeners();
