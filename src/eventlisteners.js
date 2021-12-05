@@ -16,11 +16,9 @@ document.addEventListener("click", (e) => {
     else if (target === "closeTask") closeTaskForm();
     else if (target === "addProject") showProjectForm();
     else if (target === "closeProject") closeProjectForm(); 
-    else if (target === "submitProject")  createProject(document.getElementById("projectTitle").value);  
-    
+    else if (target === "submitProject")  createProject(document.getElementById("projectTitle").value); 
     else if (target === "submitTask")  addTaskToProject();
     else if (target === "projectTitle") selectProject(e);
 })
 }
-
 export {initialeventListeners, closeTaskForm, closeProjectForm}

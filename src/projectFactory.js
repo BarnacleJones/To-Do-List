@@ -17,9 +17,8 @@ function createProject(name){
 }
 
 //selects the project when project name is clicked
-//want it to fill the area with just tasks of the project
-function selectProject(e){
-    
+//fills the area with just tasks of the project
+function selectProject(e){    
 
     //the colour to change to grey for all project names
     let allProjectElements = document.getElementsByClassName("projectTitle");
@@ -29,23 +28,21 @@ function selectProject(e){
     }
     //just colour in the selected element
     document.getElementById(e.target.id).style.backgroundColor = "lightgreen";
-    //go through all elements of the array
+    //go through all elements of the array holding all the projects
     for (let i = 0; i < allProjectsArray.length; i++) 
         {  //if the name of element and target ID are the same, that determines the current project selected
             if (e.target.id === allProjectsArray[i].name) 
                 {
-                currentproject = i;
-                
+                currentproject = i;                
                 }
             
         }
-        //----------------need to redraw projects array on the page here 
-        allProjectsArray[currentproject].populateChosenProjectDOM();
-    console.log("current project index number is: " + currentproject);
+        //redraw projects array on the page  
+    allProjectsArray[currentproject].populateChosenProjectDOM();    
 }
 
 //adds a task to current selected project - called from event listeners
-//submit task - currentproject.addTask - or something
+
 function addTaskToProject(){
     allProjectsArray[currentproject].addTask();
     console.log(allProjectsArray[currentproject].projectArray)
@@ -71,18 +68,15 @@ const projectFactory = (suppliedName) => {
         console.log(projectArray)
     }
 
-        //want this function to redraw projectsDisplay with elements of the project every time a project is clicked
+        //redraw projectsDisplay with elements of the project every time a project is clicked
     function populateChosenProjectDOM(){
         let displayArea = document.getElementById("mainDisplayInner");
         displayArea.innerHTML = "";
         for (let index = 0; index < projectArray.length; index++) {
-            // const element = projectArray[index];
-            //UP TO HERE
-            //want to redraw now.....
-            
-            
+            const element = projectArray[index];
+            element.populateTasksForProject();                
         }
-        // projectArray.forEach(element => {element.addTaskToDOM()});
+    
     }
 
     return {putOnPage, addTask, name, projectArray, populateChosenProjectDOM}
