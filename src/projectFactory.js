@@ -7,6 +7,8 @@ import {taskFactory} from "./taskFactory";
 let allProjectsArray = [];
 let currentproject = 0;
 let projectArraycounter = 0
+let testVariable = true;
+//test to see if git is working on new PC
 
 //creates new project in allprojectsarray, puts it on the page
 function createProject(name){    
