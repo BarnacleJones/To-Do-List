@@ -1,5 +1,4 @@
 import { updateProjectDOM } from "./updateProjectDOM";
-import {addTaskToDOM} from "./updateTaskDOM";
 import {closeProjectForm} from "./eventlisteners";
 import {taskFactory} from "./taskFactory";
 
@@ -8,13 +7,20 @@ let allProjectsArray = [];
 let currentproject = 0;
 let projectArraycounter = 0
 
-//creates new project in allprojectsarray, puts it on the page
+//creates new project in allprojectsarray, puts it on the page - called from event listeners
 function createProject(name){    
     allProjectsArray[projectArraycounter] = projectFactory(name)    
     allProjectsArray[projectArraycounter].putOnPage();
     closeProjectForm();   
     projectArraycounter++; 
 }
+
+//default project is highlighted when project starts
+function initialProject(){
+    let startingProject = document.getElementById("default");
+    startingProject.style.backgroundColor = "lightgreen";
+}
+
 
 //selects the project when project name is clicked
 //fills the area with just tasks of the project
@@ -45,7 +51,6 @@ function selectProject(e){
 
 function addTaskToProject(){
     allProjectsArray[currentproject].addTask();
-    console.log(allProjectsArray[currentproject].projectArray)
 }
 
 const projectFactory = (suppliedName) => {
@@ -84,5 +89,5 @@ const projectFactory = (suppliedName) => {
     
 
 
-export {createProject, projectFactory, selectProject, addTaskToProject}
+export {createProject, projectFactory, selectProject, addTaskToProject, initialProject}
 

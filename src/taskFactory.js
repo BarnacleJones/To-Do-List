@@ -9,10 +9,6 @@ const taskFactory = () =>{
     let taskpriority = document.getElementById("priority").value;
 
     function createTask(){
-    //needs to get all values from the form
-
-    //wrap them into object
-    //add task to dom
     addTaskToDOM()
     }
 
