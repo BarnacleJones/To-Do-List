@@ -43,14 +43,19 @@ body{
     height: fit-content;
 
 }
-#mainDisplay > div{
-    
-    /* grid-auto-flow: row; */
-    background-color: lightgray;
+#mainDisplay > div{    
     width:fit-content;
     height: fit-content;
-    /* margin: auto; */
     color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15%;
+}
+
+#mainDisplayInner > div {
+    margin-top: 5%;
+    background-color: lightgray;
 }
 
 header, footer{
