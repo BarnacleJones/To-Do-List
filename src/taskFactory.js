@@ -1,20 +1,24 @@
 import {addTaskToDOM} from "./updateTaskDOM";
 
-let taskNumber = 0;
-const taskFactory = () =>{
+
+const taskFactory = (taskNumber) =>{
 
     let tasktitle = document.getElementById("title").value;
     let description = document.getElementById("Description").value;
     let duedate = document.getElementById("due").value;
     let taskpriority = document.getElementById("priority").value;
-    taskNumber = taskNumber;
-    taskNumber++;
+    let thistaskNumber = taskNumber;
+    
+    
     
     function populateTasksForProject(){
-        addTaskToDOM(tasktitle, description, duedate, taskpriority, taskNumber);
+        // taskNumber = 0;
+        addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNumber);
+        
+        
     }
 
-    return{populateTasksForProject}
+    return{populateTasksForProject, thistaskNumber}
 }
 
 export {taskFactory}

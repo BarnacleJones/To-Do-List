@@ -71,18 +71,22 @@ const projectFactory = (suppliedName) => {
     }
 
     let task;
-    function addTask(){
+    let taskNumber = 0;
+    function addTask(){               
         // create the task, push to array
-        task = taskFactory();
+        task = taskFactory(taskNumber);
         // task.createTask();
         task.populateTasksForProject();
         projectArray.push(task);   
+        console.log(task.thistaskNumber)
+        taskNumber++;
     }
     
     function removeTask(id){
-        console.log("working for now but only removing one element and not correct one")
-        console.log(id)
+        // console.log("working for now but only removing one element and not correct one")
+        // console.log(id)
         projectArray.splice(id, 1);
+        console.log(projectArray)
         allProjectsArray[currentproject].populateChosenProjectDOM();
     }
 
