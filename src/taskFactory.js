@@ -9,13 +9,10 @@ const taskFactory = () =>{
     let taskpriority = document.getElementById("priority").value;
 
     function populateTasksForProject(){
-
         addTaskToDOM(tasktitle, description, duedate, taskpriority);
     }
 
     return{populateTasksForProject}
-
-
 }
 
 export {taskFactory}

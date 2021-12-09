@@ -47,6 +47,14 @@ function selectProject(e){
     allProjectsArray[currentproject].populateChosenProjectDOM();    
 }
 
+function deleteTask(e){
+    console.log("works");
+    //log the ID of the button
+    console.log(e)
+    allProjectsArray[currentproject].removeTask(e);
+
+}
+
 //adds a task to current selected project - called from event listeners
 
 function addTaskToProject(){
@@ -64,20 +72,23 @@ const projectFactory = (suppliedName) => {
     function putOnPage(){        
         updateProjectDOM(suppliedName);
     }
-    
+
+    let task;
     function addTask(){
         // create the task, push to array
-        const task = taskFactory();
+        task = taskFactory();
         // task.createTask();
         task.populateTasksForProject();
         projectArray.push(task);        
         console.log(projectArray)
     }
-
-    function removeTask(e){
-        projectArray.pop(e.target.id)
-       
+    
+    function removeTask(id){
+        console.log("working for now but only removing one element then acting funny")
+        projectArray.splice(id, 1);
+        allProjectsArray[currentproject].populateChosenProjectDOM();
     }
+
 
         //redraw projectsDisplay with elements of the project every time a project is clicked
     function populateChosenProjectDOM(){
@@ -95,5 +106,5 @@ const projectFactory = (suppliedName) => {
     
 
 
-export {createProject, projectFactory, selectProject, addTaskToProject, initialProject}
+export {createProject, projectFactory, selectProject, addTaskToProject, initialProject, deleteTask}
 

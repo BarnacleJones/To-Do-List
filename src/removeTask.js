@@ -6,6 +6,8 @@
 //function to delete task
 function deleteTask(e) {
     console.log("works");
+
+    //log the ID of the button
     console.log(e)
     
     //what to do..

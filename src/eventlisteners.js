@@ -1,5 +1,5 @@
-import { createProject, selectProject, addTaskToProject} from "./projectFactory";
-import { deleteTask } from "./removeTask";
+import { createProject, selectProject, addTaskToProject, deleteTask} from "./projectFactory";
+// import { deleteTask } from "./removeTask";
 
 
 function showTaskForm(){document.getElementById("formArea").style.display = "inherit";}
@@ -13,6 +13,7 @@ function initialeventListeners(){
 //event listeners for navigation
 document.addEventListener("click", (e) => {
     const target = e.target.className;
+    const buttonID = e.target.id;
         
     if (target === "addTask") showTaskForm();
     else if (target === "closeTask") closeTaskForm();
@@ -21,7 +22,7 @@ document.addEventListener("click", (e) => {
     else if (target === "submitProject")  createProject(document.getElementById("projectTitle").value); 
     else if (target === "submitTask")  addTaskToProject();
     else if (target === "projectTitle") selectProject(e);
-    else if (target === "deleteButton") deleteTask(e.target);
+    else if (target === "deleteButton") deleteTask(buttonID);
 })
 }
 export {initialeventListeners, closeTaskForm, closeProjectForm}
