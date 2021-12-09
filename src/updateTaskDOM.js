@@ -5,11 +5,7 @@ import { closeTaskForm } from "./eventlisteners";
 
 let taskNumber = 0;
 
-function addTaskToDOM(){
-    let tasktitle = document.getElementById("title").value;
-    let description = document.getElementById("Description").value;
-    let duedate = document.getElementById("due").value;
-    let taskpriority = document.getElementById("priority").value;
+function addTaskToDOM(tasktitle, description, duedate, taskpriority){
     
     let taskArea = document.getElementById("mainDisplayInner");
     let newDiv = document.createElement("DIV");
@@ -19,14 +15,12 @@ function addTaskToDOM(){
     `<h3>${tasktitle}</h3>
     <p>${description}</p>
     <p>Due: ${duedate}</p>
-    <p>Priority: ${taskpriority}</p>`
+    <p>Priority: ${taskpriority}</p>
+    <button id="deleteButton> Delete Task </button>`
 
     taskArea.appendChild(newDiv);
     taskNumber++;
-    closeTaskForm();
-
-
-    
+    closeTaskForm();    
 }
 
 export {addTaskToDOM}

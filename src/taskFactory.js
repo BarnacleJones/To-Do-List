@@ -8,26 +8,12 @@ const taskFactory = () =>{
     let duedate = document.getElementById("due").value;
     let taskpriority = document.getElementById("priority").value;
 
-    function createTask(){
-    addTaskToDOM()
-    }
-
     function populateTasksForProject(){
 
-        let taskArea = document.getElementById("mainDisplayInner");
-        let newDiv = document.createElement("DIV");
-        // newDiv.setAttribute("id", `${taskNumber}`);
-
-        newDiv.innerHTML = 
-        `<h3>${tasktitle}</h3>
-        <p>${description}</p>
-        <p>Due: ${duedate}</p>
-        <p>Priority: ${taskpriority}</p>`
-
-        taskArea.appendChild(newDiv);     
+        addTaskToDOM(tasktitle, description, duedate, taskpriority);
     }
 
-    return{createTask, populateTasksForProject}
+    return{populateTasksForProject}
 
 
 }

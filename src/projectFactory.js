@@ -70,7 +70,8 @@ const projectFactory = (suppliedName) => {
     function addTask(){
         // create the task, push to array
         const task = taskFactory();
-        task.createTask();
+        // task.createTask();
+        task.populateTasksForProject();
         projectArray.push(task);        
         console.log(projectArray)
     }
