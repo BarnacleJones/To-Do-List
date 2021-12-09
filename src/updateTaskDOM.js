@@ -15,8 +15,8 @@ function addTaskToDOM(tasktitle, description, duedate, taskpriority){
     `<h3>${tasktitle}</h3>
     <p>${description}</p>
     <p>Due: ${duedate}</p>
-    <p>Priority: ${taskpriority}</p>
-    <button id="deleteButton> Delete Task </button>`
+    <p>Priority: ${taskpriority}</p>    
+    <button class="deleteButton" id="${taskNumber}"> Delete Task </button>`
 
     taskArea.appendChild(newDiv);
     taskNumber++;

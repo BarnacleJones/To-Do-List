@@ -6,15 +6,13 @@ import {taskFactory} from "./taskFactory";
 let allProjectsArray = [];
 let currentproject = 0;
 let projectArraycounter = 0
-let testVariable = true;
-//test to see if git is working on new PC
 
 //creates new project in allprojectsarray, puts it on the page - called from event listeners
 function createProject(name){    
     allProjectsArray[projectArraycounter] = projectFactory(name)    
     allProjectsArray[projectArraycounter].putOnPage();
-    closeProjectForm();   
-    projectArraycounter++; 
+    closeProjectForm();
+    projectArraycounter++;
 }
 
 //default project is highlighted when project starts
@@ -76,6 +74,11 @@ const projectFactory = (suppliedName) => {
         console.log(projectArray)
     }
 
+    function removeTask(e){
+        projectArray.pop(e.target.id)
+       
+    }
+
         //redraw projectsDisplay with elements of the project every time a project is clicked
     function populateChosenProjectDOM(){
         let displayArea = document.getElementById("mainDisplayInner");
@@ -87,7 +90,7 @@ const projectFactory = (suppliedName) => {
     
     }
 
-    return {putOnPage, addTask, name, projectArray, populateChosenProjectDOM}
+    return {putOnPage, addTask, name, projectArray, populateChosenProjectDOM, removeTask}
     }
     
 
