@@ -5,7 +5,8 @@ import {taskFactory} from "./taskFactory";
 //variables
 let allProjectsArray = [];
 let currentproject = 0;
-let projectArraycounter = 0
+let projectArraycounter = 0;
+
 
 //creates new project in allprojectsarray, puts it on the page - called from event listeners
 function createProject(name){    
@@ -48,11 +49,7 @@ function selectProject(e){
 }
 
 function deleteTask(e){
-    console.log("works");
-    //log the ID of the button
-    console.log(e)
     allProjectsArray[currentproject].removeTask(e);
-
 }
 
 //adds a task to current selected project - called from event listeners
@@ -79,12 +76,12 @@ const projectFactory = (suppliedName) => {
         task = taskFactory();
         // task.createTask();
         task.populateTasksForProject();
-        projectArray.push(task);        
-        console.log(projectArray)
+        projectArray.push(task);   
     }
     
     function removeTask(id){
-        console.log("working for now but only removing one element then acting funny")
+        console.log("working for now but only removing one element and not correct one")
+        console.log(id)
         projectArray.splice(id, 1);
         allProjectsArray[currentproject].populateChosenProjectDOM();
     }

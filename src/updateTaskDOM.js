@@ -3,9 +3,9 @@ import { closeTaskForm } from "./eventlisteners";
 //this function is getting values from task form 
 //and appending the task to the dom
 
-let taskNumber = 0;
+// let taskNumber = 0;
 
-function addTaskToDOM(tasktitle, description, duedate, taskpriority){
+function addTaskToDOM(tasktitle, description, duedate, taskpriority, taskNumber){
     
     let taskArea = document.getElementById("mainDisplayInner");
     let newDiv = document.createElement("DIV");
@@ -19,7 +19,7 @@ function addTaskToDOM(tasktitle, description, duedate, taskpriority){
     <button class="deleteButton" id="${taskNumber}"> Delete Task </button>`
 
     taskArea.appendChild(newDiv);
-    taskNumber++;
+    // taskNumber++;
     closeTaskForm();    
 }
 

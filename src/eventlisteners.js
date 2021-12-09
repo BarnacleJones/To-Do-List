@@ -13,7 +13,8 @@ function initialeventListeners(){
 //event listeners for navigation
 document.addEventListener("click", (e) => {
     const target = e.target.className;
-    const buttonID = e.target.id;
+    // const buttonID = e.target.id;
+    const buttonID = e;
         
     if (target === "addTask") showTaskForm();
     else if (target === "closeTask") closeTaskForm();
