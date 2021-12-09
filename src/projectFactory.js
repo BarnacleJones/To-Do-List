@@ -83,11 +83,20 @@ const projectFactory = (suppliedName) => {
     }
     
     function removeTask(id){
+        
         // console.log("working for now but only removing one element and not correct one")
         // console.log(id)
+        console.log("when it is spliced, the old button ID's are not relevant...")
         projectArray.splice(id, 1);
-        console.log(projectArray)
+        
+        taskNumber = projectArray.length;
         allProjectsArray[currentproject].populateChosenProjectDOM();
+        console.log(taskNumber)
+
+        //does this make a difference? try with and without - 
+        //what if create a new function in task factory for populating the 
+        //project on line 91 that restarts a counter - where else is that function called
+        // taskNumber = 0;
     }
 
 
@@ -97,7 +106,7 @@ const projectFactory = (suppliedName) => {
         displayArea.innerHTML = "";
         for (let index = 0; index < projectArray.length; index++) {
             const element = projectArray[index];
-            element.populateTasksForProject();                
+            element.populateTasksForProjectAfterRemoval(index);                
         }
     
     }
