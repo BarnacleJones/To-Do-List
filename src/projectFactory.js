@@ -13,7 +13,8 @@ function createProject(name){
     allProjectsArray[projectArraycounter] = projectFactory(name)    
     allProjectsArray[projectArraycounter].putOnPage(counter);
     closeProjectForm();
-    projectArraycounter++;    
+    projectArraycounter++;  
+    counter++;  
     console.log(counter)
 }
 
@@ -27,7 +28,7 @@ function initialProject(){
 //selects the project when project name is clicked
 //fills the area with just tasks of the project
 function selectProject(e){    
-
+    
     //the colour to change to grey for all project names
     let allProjectElements = document.getElementsByClassName("projectTitle");
     for (let index = 0; index < allProjectElements.length; index++) {
@@ -60,22 +61,23 @@ function addTaskToProject(){
 }
 
 function deleteProject(id){
-    
     //all projects array splice
     allProjectsArray.splice(id, 1);
     let projectArea = document.getElementById("projectList");
+    let taskArea = document.getElementById("mainDisplayInner");
+    taskArea.innerHTML = "";
     projectArea.innerHTML = "";
     //redraw all elements of array
     counter = 0;
     projectArraycounter--;
     for (let index = 0; index < allProjectsArray.length; index++) {
-        allProjectsArray[index].putOnPage(counter);       
+        
+        allProjectsArray[index].putOnPage(counter);     
+        counter++;  
         console.log(counter)         
     }
     //make default highlighted
     initialProject();  
-
-    
 }
 
 const projectFactory = (suppliedName) => {
@@ -88,8 +90,8 @@ const projectFactory = (suppliedName) => {
 
     function putOnPage(counter){        
         updateProjectDOM(suppliedName, counter);
-        counter++;
-        return counter;
+        
+        
     }
 
     let task;
