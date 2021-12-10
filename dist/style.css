@@ -24,7 +24,7 @@ body{
     padding-left: 5%;
 }
 
-#projectsDisplay > h2{
+#projectsDisplay > div{
   width: min-content;
 }
 
