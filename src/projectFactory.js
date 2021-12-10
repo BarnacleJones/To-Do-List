@@ -6,20 +6,21 @@ import {taskFactory} from "./taskFactory";
 let allProjectsArray = [];
 let currentproject = 0;
 let projectArraycounter = 0;
-
+let counter =0;
 
 //creates new project in allprojectsarray, puts it on the page - called from event listeners
 function createProject(name){    
     allProjectsArray[projectArraycounter] = projectFactory(name)    
-    allProjectsArray[projectArraycounter].putOnPage();
+    allProjectsArray[projectArraycounter].putOnPage(counter);
     closeProjectForm();
-    projectArraycounter++;
+    projectArraycounter++;    
+    console.log(counter)
 }
 
 //default project is highlighted when project starts
 function initialProject(){
     let startingProject = document.getElementById("default");
-    startingProject.style.backgroundColor = "lightgreen";
+    startingProject.style.backgroundColor = "lightgray";
 }
 
 
@@ -34,7 +35,7 @@ function selectProject(e){
         element.style.backgroundColor = "grey";        
     }
     //just colour in the selected element
-    document.getElementById(e.target.id).style.backgroundColor = "lightgreen";
+    document.getElementById(e.target.id).style.backgroundColor = "lightgray";
     //go through all elements of the array holding all the projects
     for (let i = 0; i < allProjectsArray.length; i++) 
         {  //if the name of element and target ID are the same, that determines the current project selected
@@ -58,6 +59,25 @@ function addTaskToProject(){
     allProjectsArray[currentproject].addTask();
 }
 
+function deleteProject(id){
+    
+    //all projects array splice
+    allProjectsArray.splice(id, 1);
+    let projectArea = document.getElementById("projectList");
+    projectArea.innerHTML = "";
+    //redraw all elements of array
+    counter = 0;
+    projectArraycounter--;
+    for (let index = 0; index < allProjectsArray.length; index++) {
+        allProjectsArray[index].putOnPage(counter);       
+        console.log(counter)         
+    }
+    //make default highlighted
+    initialProject();  
+
+    
+}
+
 const projectFactory = (suppliedName) => {
     
     //so i can see whats going on in logs
@@ -66,8 +86,10 @@ const projectFactory = (suppliedName) => {
     //create array for this project
     let projectArray = [];
 
-    function putOnPage(){        
-        updateProjectDOM(suppliedName);
+    function putOnPage(counter){        
+        updateProjectDOM(suppliedName, counter);
+        counter++;
+        return counter;
     }
 
     let task;
@@ -83,22 +105,10 @@ const projectFactory = (suppliedName) => {
     }
     
     function removeTask(id){
-        
-        // console.log("working for now but only removing one element and not correct one")
-        // console.log(id)
-        console.log("when it is spliced, the old button ID's are not relevant...")
-        projectArray.splice(id, 1);
-        
+        projectArray.splice(id, 1);        
         taskNumber = projectArray.length;
-        allProjectsArray[currentproject].populateChosenProjectDOM();
-        console.log(taskNumber)
-
-        //does this make a difference? try with and without - 
-        //what if create a new function in task factory for populating the 
-        //project on line 91 that restarts a counter - where else is that function called
-        // taskNumber = 0;
+        allProjectsArray[currentproject].populateChosenProjectDOM(); 
     }
-
 
         //redraw projectsDisplay with elements of the project every time a project is clicked
     function populateChosenProjectDOM(){
@@ -107,8 +117,7 @@ const projectFactory = (suppliedName) => {
         for (let index = 0; index < projectArray.length; index++) {
             const element = projectArray[index];
             element.populateTasksForProjectAfterRemoval(index);                
-        }
-    
+        }    
     }
 
     return {putOnPage, addTask, name, projectArray, populateChosenProjectDOM, removeTask}
@@ -116,5 +125,5 @@ const projectFactory = (suppliedName) => {
     
 
 
-export {createProject, projectFactory, selectProject, addTaskToProject, initialProject, deleteTask}
+export {createProject, projectFactory, selectProject, addTaskToProject, initialProject, deleteTask, deleteProject}
 

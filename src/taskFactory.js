@@ -11,13 +11,11 @@ const taskFactory = (taskNumber) =>{
     
     
     
-    function populateTasksForProject(){
-        // taskNumber = 0;
-        addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNumber);
-        
-        
+    function populateTasksForProject(){        
+        addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNumber); 
     }
 
+    
     //function for when tasks have been removed
  
     function populateTasksForProjectAfterRemoval(index){        
