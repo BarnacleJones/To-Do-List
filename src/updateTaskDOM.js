@@ -3,8 +3,6 @@ import { closeTaskForm } from "./eventlisteners";
 //this function is getting values from task form 
 //and appending the task to the dom
 
-// let taskNumber = 0;
-
 function addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNumber){
     
     let taskArea = document.getElementById("mainDisplayInner");
@@ -20,8 +18,7 @@ function addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNum
 
     taskArea.appendChild(newDiv);
     
-    closeTaskForm();  
-     
+    closeTaskForm();       
 }
 
 export {addTaskToDOM}

@@ -6,16 +6,15 @@ import {taskFactory} from "./taskFactory";
 let allProjectsArray = [];
 let currentproject = 0;
 let projectArraycounter = 0;
-let counter =0;
+let buttonCounter =0;
 
 //creates new project in allprojectsarray, puts it on the page - called from event listeners
 function createProject(name){    
     allProjectsArray[projectArraycounter] = projectFactory(name)    
-    allProjectsArray[projectArraycounter].putOnPage(counter);
+    allProjectsArray[projectArraycounter].putOnPage(buttonCounter);
     closeProjectForm();
     projectArraycounter++;  
-    counter++;  
-    console.log(counter)
+    buttonCounter++;  
 }
 
 //default project is highlighted when project starts
@@ -43,10 +42,9 @@ function selectProject(e){
             if (e.target.id === allProjectsArray[i].name) 
                 {
                 currentproject = i;                
-                }
-            
+                }            
         }
-        //redraw projects array on the page  
+    //redraw that projects tasks(array) on the page  
     allProjectsArray[currentproject].populateChosenProjectDOM();    
 }
 
@@ -68,13 +66,12 @@ function deleteProject(id){
     taskArea.innerHTML = "";
     projectArea.innerHTML = "";
     //redraw all elements of array
-    counter = 0;
+    buttonCounter = 0;
     projectArraycounter--;
     for (let index = 0; index < allProjectsArray.length; index++) {
         
-        allProjectsArray[index].putOnPage(counter);     
-        counter++;  
-        console.log(counter)         
+        allProjectsArray[index].putOnPage(buttonCounter);     
+        buttonCounter++;      
     }
     //make default highlighted
     initialProject();  
@@ -88,10 +85,8 @@ const projectFactory = (suppliedName) => {
     //create array for this project
     let projectArray = [];
 
-    function putOnPage(counter){        
-        updateProjectDOM(suppliedName, counter);
-        
-        
+    function putOnPage(buttonCounter){        
+        updateProjectDOM(suppliedName, buttonCounter);          
     }
 
     let task;
@@ -102,7 +97,6 @@ const projectFactory = (suppliedName) => {
         // task.createTask();
         task.populateTasksForProject();
         projectArray.push(task);   
-        console.log(task.thistaskNumber)
         taskNumber++;
     }
     

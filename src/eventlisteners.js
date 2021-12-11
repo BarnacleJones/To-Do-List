@@ -1,5 +1,4 @@
-import { createProject, selectProject, addTaskToProject, deleteTask, deleteProject} from "./projectFactory";
-// import { deleteTask } from "./removeTask";
+import { createProject, selectProject, addTaskToProject, deleteTask, deleteProject} from "./projectController";
 
 
 function showTaskForm(){document.getElementById("formArea").style.display = "inherit";}
@@ -10,11 +9,10 @@ function closeProjectForm(){document.getElementById("projectForm").style.display
 
 
 function initialeventListeners(){
-//event listeners for navigation
+//event listeners for functionality
 document.addEventListener("click", (e) => {
     const target = e.target.className;
-    const buttonID = e.target.id;
-    
+    const buttonID = e.target.id;    
         
     if (target === "addTask") showTaskForm();
     else if (target === "closeTask") closeTaskForm();
