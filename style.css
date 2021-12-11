@@ -33,19 +33,14 @@ body{
     border: 2px solid black;
     border-radius: 10px;
     background-color: grey;
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; */
     display: grid;
     grid-auto-flow: column;
-    gap: 2%;
-    
-    }
+    gap: 2%;    
+}
 
 #mainDisplay > h1{
     width:min-content;
     height: fit-content;
-
 }
 #mainDisplay > div{    
     width:fit-content;
