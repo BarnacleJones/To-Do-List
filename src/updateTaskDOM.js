@@ -1,4 +1,5 @@
 import { closeTaskForm } from "./eventlisteners";
+import { allProjectsArray, currentproject, projectFactory } from "./projectController";
 
 
 //this function is getting values from task form 
@@ -13,11 +14,11 @@ function addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNum
       
 
     if (taskpriority === "high") {
-
+        
         newDiv.style.backgroundColor = "orange"
     }
     else if (taskpriority === "low"){
-
+        
         newDiv.style.backgroundColor = "green"
     }
 

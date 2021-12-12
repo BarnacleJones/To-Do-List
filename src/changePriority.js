@@ -12,12 +12,14 @@ function changePriority(id, divname, value){
         //this is hacky, arent changing actual values of task so it doesnt stick
        document.getElementById(`priorityArea${id}`).innerText = "Priority: low";
        //need to change the actual tasks priority ???
+       // allProjectsArray[currentproject].projectArray[0].changeTaskPriority();
    }
    else if (value === "low") {       
        div.style.backgroundColor = "orange";
         //this is hacky, arent changing actual values of task so it doesnt stick
        document.getElementById(`priorityArea${id}`).innerText = "Priority: high"
        //need to change the actual tasks priority ???
+       // allProjectsArray[currentproject].projectArray[0].changeTaskPriority();
    }
  }
 

@@ -103,6 +103,9 @@ const projectFactory = (suppliedName) => {
         taskNumber++;
     }
 
+    function changeTaskPriority() {
+        task.changePriority()
+    }
     
     function removeTask(id){
         projectArray.splice(id, 1);        
@@ -120,7 +123,7 @@ const projectFactory = (suppliedName) => {
         }    
     }
 
-    return {putOnPage, addTask, name, projectArray, populateChosenProjectDOM, removeTask}
+    return {putOnPage, addTask, name, projectArray, populateChosenProjectDOM, removeTask, changeTaskPriority}
     }
     
 
