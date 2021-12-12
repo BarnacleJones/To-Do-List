@@ -1,4 +1,4 @@
-import { createProject, initialProject } from "./projectFactory";
+import { createProject, initialProject } from "./projectController";
 import { initialeventListeners } from "./eventlisteners";
 
 initialeventListeners();

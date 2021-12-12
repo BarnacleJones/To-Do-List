@@ -88,17 +88,21 @@ const projectFactory = (suppliedName) => {
     function putOnPage(buttonCounter){        
         updateProjectDOM(suppliedName, buttonCounter);          
     }
+   
 
     let task;
     let taskNumber = 0;
     function addTask(){               
-        // create the task, push to array
+        // create the task
         task = taskFactory(taskNumber);
-        // task.createTask();
-        task.populateTasksForProject();
-        projectArray.push(task);   
+        //draw the task out
+        task.populateTasks(taskNumber)
+        //push to array
+        projectArray.push(task);  
+        
         taskNumber++;
     }
+
     
     function removeTask(id){
         projectArray.splice(id, 1);        
@@ -112,7 +116,7 @@ const projectFactory = (suppliedName) => {
         displayArea.innerHTML = "";
         for (let index = 0; index < projectArray.length; index++) {
             const element = projectArray[index];
-            element.populateTasksForProjectAfterRemoval(index);                
+            element.populateTasks(index);                
         }    
     }
 
@@ -121,5 +125,5 @@ const projectFactory = (suppliedName) => {
     
 
 
-export {createProject, projectFactory, selectProject, addTaskToProject, initialProject, deleteTask, deleteProject}
+export {createProject, projectFactory, selectProject, addTaskToProject, initialProject, deleteTask, deleteProject, allProjectsArray, currentproject}
 

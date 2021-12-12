@@ -1,4 +1,5 @@
 import { createProject, selectProject, addTaskToProject, deleteTask, deleteProject} from "./projectController";
+import {changePriority} from "./changePriority";
 
 
 function showTaskForm(){document.getElementById("formArea").style.display = "inherit";}
@@ -12,7 +13,9 @@ function initialeventListeners(){
 //event listeners for functionality
 document.addEventListener("click", (e) => {
     const target = e.target.className;
-    const buttonID = e.target.id;    
+    const buttonID = e.target.id;   
+    const name = e.target.name; 
+    const value = e.target.value;
         
     if (target === "addTask") showTaskForm();
     else if (target === "closeTask") closeTaskForm();
@@ -23,6 +26,9 @@ document.addEventListener("click", (e) => {
     else if (target === "projectTitle") selectProject(e);
     else if (target === "deleteButton") deleteTask(buttonID);
     else if (target === "projectButton") deleteProject(buttonID);
+    else if (target === "priorityButton") changePriority(buttonID, name, value)
+    
 })
+
 }
 export {initialeventListeners, closeTaskForm, closeProjectForm}

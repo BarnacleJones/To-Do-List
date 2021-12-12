@@ -9,21 +9,19 @@ const taskFactory = (taskNumber) =>{
     let taskpriority = document.getElementById("priority").value;
     let thistaskNumber = taskNumber;
     
-    
-    
-    function populateTasksForProject(){        
-        addTaskToDOM(tasktitle, description, duedate, taskpriority, thistaskNumber); 
+    function changePriority(){
+        if (taskpriority === "high") {taskpriority === "low"}
+        else if (taskpriority === "low") {taskpriority === "high"}
     }
-
+    
     
     //function for when tasks have been removed
  
-    function populateTasksForProjectAfterRemoval(index){        
-        addTaskToDOM(tasktitle, description, duedate, taskpriority, index);
-        console.log(index)
+    function populateTasks(index){        
+        addTaskToDOM(tasktitle, description, duedate, taskpriority, index);        
     }
 
-    return{populateTasksForProject, thistaskNumber, populateTasksForProjectAfterRemoval}
+    return{thistaskNumber, populateTasks, changePriority}
 }
 
 export {taskFactory}
