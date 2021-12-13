@@ -10,3 +10,6 @@ Single Responsibility Principle
 
 
 Future enhancements: update priority, use a library to display time remaining on each task, localstorage to save projects
+
+See it in action here:
+https://barnaclejones.github.io/To-Do-List/
