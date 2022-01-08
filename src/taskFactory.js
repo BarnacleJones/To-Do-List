@@ -1,27 +1,23 @@
-import {addTaskToDOM} from "./updateTaskDOM";
+import { addTaskToDOM } from './updateTaskDOM';
 
+const taskFactory = (taskNumber) => {
+  const tasktitle = document.getElementById('title').value;
+  const description = document.getElementById('Description').value;
+  const duedate = document.getElementById('due').value;
+  const taskpriority = document.getElementById('priority').value;
+  const thistaskNumber = taskNumber;
 
-const taskFactory = (taskNumber) =>{
+  function changePriority() {
+    if (taskpriority === 'high') { taskpriority === 'low'; } else if (taskpriority === 'low') { taskpriority === 'high'; }
+  }
 
-    let tasktitle = document.getElementById("title").value;
-    let description = document.getElementById("Description").value;
-    let duedate = document.getElementById("due").value;
-    let taskpriority = document.getElementById("priority").value;
-    let thistaskNumber = taskNumber;
-    
-    function changePriority(){
-        if (taskpriority === "high") {taskpriority === "low"}
-        else if (taskpriority === "low") {taskpriority === "high"}
-    }
-    
-    
-    //function for when tasks have been removed
- 
-    function populateTasks(index){        
-        addTaskToDOM(tasktitle, description, duedate, taskpriority, index);        
-    }
+  // function for when tasks have been removed
 
-    return{thistaskNumber, populateTasks, changePriority}
-}
+  function populateTasks(index) {
+    addTaskToDOM(tasktitle, description, duedate, taskpriority, index);
+  }
 
-export {taskFactory}
+  return { thistaskNumber, populateTasks, changePriority };
+};
+
+export { taskFactory };
